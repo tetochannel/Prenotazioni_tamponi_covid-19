@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc8fd012-837b-4384-ac48-b95e498d16c7" name="Default Changelist" comment="First commit">
+    <list default="true" id="cc8fd012-837b-4384-ac48-b95e498d16c7" name="Default Changelist" comment="Aggiornamento prenotazioni.html">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fcf02049-c31f-4c47-a94c-c261d2d4d064.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fcf02049-c31f-4c47-a94c-c261d2d4d064/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prenotazioni.php" beforeDir="false" afterPath="$PROJECT_DIR$/prenotazioni.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prenotazioni.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +17,28 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.0.2" />
   <component name="ProjectId" id="1pNWCa6WOTqEbHwj3BXJKham1to" />
@@ -26,12 +50,72 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mariadb" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../xampp/htdocs/Prenotazioni_tampone_Covid-19" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="SQL Dialects" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\andre\Desktop\Prenotazioni_tampone_covid-19" />
+    </key>
+  </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:80/Prenotazioni_tampone_Covid-19/prenotazioni.php" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/x-www-form-urlencoded" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="codice_fiscale=prova&amp;giorno=2021-03-06" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:80/Prenotazioni_tampone_Covid-19/prenotazioni.php" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/x-www-form-urlencoded" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="cf=prova&amp;day=null" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:80/Prenotazioni_tampone_Covid-19/prenotazioni.php" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/x-www-form-urlencoded" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="cf=prova&amp;day=2021-03-06" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="HTTP Request.rest-api#1">
     <configuration name="rest-api#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" runType="Run single request">
@@ -57,7 +141,11 @@
       <updated>1615023903971</updated>
       <workItem from="1615023905545" duration="1381000" />
       <workItem from="1615025313459" duration="28000" />
-      <workItem from="1615025342997" duration="6015000" />
+      <workItem from="1615025342997" duration="8768000" />
+      <workItem from="1615062935118" duration="17000" />
+      <workItem from="1615284552004" duration="4979000" />
+      <workItem from="1615556832809" duration="312000" />
+      <workItem from="1615622998200" duration="2343000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1615024140903</created>
@@ -115,7 +203,77 @@
       <option name="project" value="LOCAL" />
       <updated>1615030436611</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Aggiunta variabili reperite tramite metodo POST">
+      <created>1615031579082</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1615031579082</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Configurazione deployment server http">
+      <created>1615031643891</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1615031643891</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Aggiunta commenti esplicativi in prenotazioni.php">
+      <created>1615033773101</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1615033773101</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Modifica commenti prenotazioni.php">
+      <created>1615034006027</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1615034006027</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Creazione frontend HTML per prenotazioni.php">
+      <created>1615289137454</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1615289137454</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Aggiornamento prenotazioni.html">
+      <created>1615289505772</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1615289505772</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Aggiornamento prenotazioni.html">
+      <created>1615556927900</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1615556927900</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Creazione lista_prenotazioni.php">
+      <created>1615556964143</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1615556964143</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Aggiunta esempio di file di configurazione">
+      <created>1615624701639</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1615624701640</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Implementazione modifiche con config.php">
+      <created>1615624837063</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1615624837063</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,7 +301,16 @@
     <MESSAGE value="Primo commit" />
     <MESSAGE value="Terzo commit" />
     <MESSAGE value="Creazione esempio di invio di query di tipo dml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creazione esempio di invio di query di tipo dml" />
+    <MESSAGE value="Aggiunta variabili reperite tramite metodo POST" />
+    <MESSAGE value="Configurazione deployment server http" />
+    <MESSAGE value="Aggiunta commenti esplicativi in prenotazioni.php" />
+    <MESSAGE value="Modifica commenti prenotazioni.php" />
+    <MESSAGE value="Creazione frontend HTML per prenotazioni.php" />
+    <MESSAGE value="Aggiornamento prenotazioni.html" />
+    <MESSAGE value="Creazione lista_prenotazioni.php" />
+    <MESSAGE value="Aggiunta esempio di file di configurazione" />
+    <MESSAGE value="Implementazione modifiche con config.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementazione modifiche con config.php" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

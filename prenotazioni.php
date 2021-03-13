@@ -19,7 +19,7 @@ $stmt->execute(
     ]
 );
 
-echo '<h1>Prenotazione effettuata con successo</h1>';
+// echo '<h1>Prenotazione effettuata con successo</h1>';
 
 // In generale il deployment è il processo per cui si configura/installa/monta (es. infrastrutture di macchine)/fornisce
 // il risultato finale al cliente se per esempio

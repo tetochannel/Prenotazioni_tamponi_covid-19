@@ -1,25 +1,9 @@
 <?php
 
-// Dice a livello dello script di mostrare gli errori e non loggari, come
-// succederebbe nel normale funzionamento del programa, solo a scopo di
-// debug durante lo sviluppo
-
-ini_set('display_errors', 1);
-ini_set('log_errors', 0);
-
-$host = 'localhost';
-$dbname = 'prenotazioni_tampone_covid-19';
-
-$user = 'root';
-$password = '';
+include_once 'config.php';
 
 $codice_fiscale = $_POST['codice_fiscale'];
 $giorno = $_POST['giorno'];
-
-
-$dsn = 'mysql:host='.$host.';dbname='.$dbname;
-
-$pdo = new PDO($dsn, $user, $password);
                                                                                                 // Sono i segna posto, posso avere lo stesso nome delle variabili che rappresentano ma NON fanno riferimento alla stessa cosa (non sono la stessa cosa)
 $sql = "INSERT INTO `prenotazioni_tampone_covid-19`.prenotazioni (codice_fiscale, giorno) values (:codice_fiscale, :giorno)";
 
@@ -35,6 +19,8 @@ $stmt->execute(
     ]
 );
 
+echo '<h1>Prenotazione effettuata con successo</h1>';
+
 // In generale il deployment è il processo per cui si configura/installa/monta (es. infrastrutture di macchine)/fornisce
 // il risultato finale al cliente se per esempio
 // ci ha richiesto un software oppure mettendolo sul server se abbiamo realizzato un back end in php come in questo caso
@@ -46,3 +32,9 @@ $stmt->execute(
 
 
 //Simulazione richieste post: Tools/Http Client/Test RESTful Web Service
+
+//Decisione "Sporca" {
+//Sovrascrive l'header del pacchhetto di risposta del server reindirizzando il client alla pagina indicata nella location
+header('location: lista_prenotazioni.php');
+exit(0);
+//}

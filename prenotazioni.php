@@ -23,7 +23,7 @@ $giorno = $_POST['giorno'];
 $_SESSION['uuid'] = $codice = uuid();
 
                                                                                                 // Sono i segna posto, posso avere lo stesso nome delle variabili che rappresentano ma NON fanno riferimento alla stessa cosa (non sono la stessa cosa)
-$sql = "INSERT INTO `new_prenotazioni_covid-19`.prenotazioni (codice_fiscale, giorno, uuid) values (:codice_fiscale, :giorno, :codice)";
+$sql = "INSERT INTO `prenotazioni_tampone_covid-19`.prenotazioni (codice_fiscale, giorno, uuid) values (:codice_fiscale, :giorno, :codice)";
 
 // Con questa istruzione viene inviata la query al database che però non esegue subito ma la memorizza, aspettando che venga richiesto di eseguirla tramite il richiamo della funzione execute
 $stmt = $pdo->prepare($sql);
@@ -54,6 +54,6 @@ $stmt->execute(
 
 //Decisione "Sporca" {
 //Sovrascrive l'header del pacchhetto di risposta del server reindirizzando il client alla pagina indicata nella location
-header('location: codice.php');
+header('location: lista_prenotazioni.php');
 //}
 exit(0);

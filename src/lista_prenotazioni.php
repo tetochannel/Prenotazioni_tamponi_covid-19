@@ -19,8 +19,6 @@ $result = $stmt->fetchAll();
 // }
 
 session_start();
-
 echo $templates->render('lista_prenotazioni', ['result' => $result, 'uuid' => $_SESSION['uuid']]);
-
 session_abort();
 exit(0);

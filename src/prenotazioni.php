@@ -1,6 +1,10 @@
 <?php
 
 include_once 'config.php';
+require 'vendor/autoload.php';
+use League\Plates\Engine;
+
+define('PRENOTAZIONI_MASSIME', 5);
 
 function uuid($data = null) {
     // Generate 16 bytes (128 bits) of random data or use the data passed into the function.
@@ -16,12 +20,31 @@ function uuid($data = null) {
     return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
 }
 
-session_start();
+$giorno = $_POST['giorno'];
+
+$sql = 'select count(*) as numero_prenotazioni, giorno from `prenotazioni_tampone_covid-19`.prenotazioni group by giorno having giorno = :giorno';
+
+$stmt = $pdo->prepare($sql);
+
+$stmt->execute(
+    [
+        'giorno' => $giorno
+    ]
+);
+
+$result = $stmt->fetchAll();
+
+if ($result[0]['numero_prenotazioni'] >= PRENOTAZIONI_MASSIME)
+{
+    $templates = new Engine('view', 'tpl');
+    echo $templates->render('prenotazioni_massime', ['giorno' => date('d/m/Y', strtotime($result[0]['giorno']))]);
+    exit(0);
+}
 
 $codice_fiscale = $_POST['codice_fiscale'];
-$giorno = $_POST['giorno'];
-$_SESSION['uuid'] = $codice = uuid();
 
+session_start();
+$_SESSION['uuid'] = $codice = uuid();
                                                                                                 // Sono i segna posto, posso avere lo stesso nome delle variabili che rappresentano ma NON fanno riferimento alla stessa cosa (non sono la stessa cosa)
 $sql = "INSERT INTO `prenotazioni_tampone_covid-19`.prenotazioni (codice_fiscale, giorno, uuid) values (:codice_fiscale, :giorno, :codice)";
 

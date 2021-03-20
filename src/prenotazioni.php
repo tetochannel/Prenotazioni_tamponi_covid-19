@@ -4,21 +4,9 @@ include_once 'config.php';
 require 'vendor/autoload.php';
 use League\Plates\Engine;
 
-function uuid($data = null) {
-    // Generate 16 bytes (128 bits) of random data or use the data passed into the function.
-    $data = $data ?? random_bytes(16);
-    assert(strlen($data) == 16);
-
-    // Set version to 0100
-    $data[6] = chr(ord($data[6]) & 0x0f | 0x40);
-    // Set bits 6-7 to 10
-    $data[8] = chr(ord($data[8]) & 0x3f | 0x80);
-
-    // Output the 36 character UUID.
-    return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
-}
-
 $giorno = $_POST['giorno'];
+$codice_fiscale = $_POST['codice_fiscale'];
+
 
 $sql = 'select count(*) as numero_prenotazioni, giorno from `prenotazioni_tampone_covid-19`.prenotazioni group by giorno having giorno = :giorno';
 
@@ -39,10 +27,9 @@ if ($result[0]['numero_prenotazioni'] >= PRENOTAZIONI_MASSIME)
     exit(0);
 }
 
-$codice_fiscale = $_POST['codice_fiscale'];
-$codice = uuid();
+$codice = hash('sha3-224', $codice_fiscale.'-'.time());
                                                                                                 // Sono i segna posto, posso avere lo stesso nome delle variabili che rappresentano ma NON fanno riferimento alla stessa cosa (non sono la stessa cosa)
-$sql = "INSERT INTO `prenotazioni_tampone_covid-19`.prenotazioni (codice_fiscale, giorno, uuid) values (:codice_fiscale, :giorno, :codice)";
+$sql = "INSERT INTO `prenotazioni_tampone_covid-19`.prenotazioni (codice_fiscale, giorno, uid) values (:codice_fiscale, :giorno, :codice)";
 
 // Con questa istruzione viene inviata la query al database che però non esegue subito ma la memorizza, aspettando che venga richiesto di eseguirla tramite il richiamo della funzione execute
 $stmt = $pdo->prepare($sql);
@@ -73,5 +60,5 @@ $stmt->execute(
 
 //Decisione "Sporca" {
 //Sovrascrive l'header del pacchhetto di risposta del server reindirizzando il client alla pagina indicata nella location
-header("location: lista_prenotazioni.php?uuid=$codice");
+header("location: lista_prenotazioni.php?uid=$codice");
 //}

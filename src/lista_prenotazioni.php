@@ -19,4 +19,4 @@ $result = $stmt->fetchAll();
 //echo '</pre>';
 // }
                                                                                 //sicura
-echo $templates->render('lista_prenotazioni', ['result' => $result, 'uuid' => $_GET['uuid']]);
+echo $templates->render('lista_prenotazioni', ['result' => $result, 'uid' => $_GET['uid']]);

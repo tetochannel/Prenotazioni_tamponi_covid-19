@@ -2,4 +2,4 @@
 
 require 'vendor/phpqrcode.php';
                     //sicura
-$qr = QRcode::png($_GET['uuid']);
+$qr = QRcode::png($_GET['uid']);

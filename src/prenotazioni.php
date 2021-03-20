@@ -4,8 +4,6 @@ include_once 'config.php';
 require 'vendor/autoload.php';
 use League\Plates\Engine;
 
-define('PRENOTAZIONI_MASSIME', 5);
-
 function uuid($data = null) {
     // Generate 16 bytes (128 bits) of random data or use the data passed into the function.
     $data = $data ?? random_bytes(16);

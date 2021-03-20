@@ -40,9 +40,7 @@ if ($result[0]['numero_prenotazioni'] >= PRENOTAZIONI_MASSIME)
 }
 
 $codice_fiscale = $_POST['codice_fiscale'];
-
-session_start();
-$_SESSION['uuid'] = $codice = uuid();
+$codice = uuid();
                                                                                                 // Sono i segna posto, posso avere lo stesso nome delle variabili che rappresentano ma NON fanno riferimento alla stessa cosa (non sono la stessa cosa)
 $sql = "INSERT INTO `prenotazioni_tampone_covid-19`.prenotazioni (codice_fiscale, giorno, uuid) values (:codice_fiscale, :giorno, :codice)";
 
@@ -75,6 +73,5 @@ $stmt->execute(
 
 //Decisione "Sporca" {
 //Sovrascrive l'header del pacchhetto di risposta del server reindirizzando il client alla pagina indicata nella location
-header('location: lista_prenotazioni.php');
+header("location: lista_prenotazioni.php?uuid=$codice");
 //}
-exit(0);

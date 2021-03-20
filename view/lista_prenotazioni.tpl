@@ -8,6 +8,7 @@
 <body>
     <h2> Prenotazione riuscita </h2>
     <h3> Questo è il tuo codice prenotazione che dovrai esibire quando ti presenterai alla visita </h3>
+    <img src="qr_code_generator.php?uuid=<?php echo $uuid;?>"/>
     <h1><strong><?php echo $uuid; ?></strong></h1>
     <h4><i>NB: Salvatelo perché altrimenti non potrai fare la visita senza</i></h4>
     <input onclick="window.location.href='/Prenotazioni_tampone_Covid-19'" type="submit" value="Torna indietro"/>

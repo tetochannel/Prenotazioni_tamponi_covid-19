@@ -2,6 +2,7 @@
 
 include_once 'config.php';
 require 'vendor/autoload.php';
+
 use League\Plates\Engine;
 
 $templates = new Engine('view', 'tpl');
@@ -17,8 +18,5 @@ $result = $stmt->fetchAll();
 //echo var_dump($stmt->fetchAll());
 //echo '</pre>';
 // }
-
-session_start();
-echo $templates->render('lista_prenotazioni', ['result' => $result, 'uuid' => $_SESSION['uuid']]);
-session_abort();
-exit(0);
+                                                                                //sicura
+echo $templates->render('lista_prenotazioni', ['result' => $result, 'uuid' => $_GET['uuid']]);

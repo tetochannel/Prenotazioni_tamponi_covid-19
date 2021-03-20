@@ -1,5 +1,11 @@
 <?php
 
+include_once 'config.php';
+require 'vendor/autoload.php';
+use League\Plates\Engine;
+
+define('PRENOTAZIONI_MASSIME', 5);
+
 function uuid($data = null) {
     // Generate 16 bytes (128 bits) of random data or use the data passed into the function.
     $data = $data ?? random_bytes(16);
@@ -13,9 +19,6 @@ function uuid($data = null) {
     // Output the 36 character UUID.
     return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
 }
-
-include_once 'config.php';
-use League\Plates\Engine;
 
 $giorno = $_POST['giorno'];
 
@@ -31,12 +34,9 @@ $stmt->execute(
 
 $result = $stmt->fetchAll();
 
-if ($result[0]['numero_prenotazioni'] >= 5)
+if ($result[0]['numero_prenotazioni'] >= PRENOTAZIONI_MASSIME)
 {
-    require 'vendor/autoload.php';
-
     $templates = new Engine('view', 'tpl');
-
     echo $templates->render('prenotazioni_massime', ['giorno' => date('d/m/Y', strtotime($result[0]['giorno']))]);
     exit(0);
 }
@@ -79,3 +79,4 @@ $stmt->execute(
 //Sovrascrive l'header del pacchhetto di risposta del server reindirizzando il client alla pagina indicata nella location
 header('location: lista_prenotazioni.php');
 //}
+exit(0);

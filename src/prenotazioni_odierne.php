@@ -1,0 +1,14 @@
+<?php
+
+include_once 'config.php';
+require 'vendor/autoload.php';
+use League\Plates\Engine;
+
+$templates = new Engine('view', 'tpl');
+
+$stmt = $pdo->query('SELECT codice_fiscale, uuid from `prenotazioni_tampone_covid-19`.prenotazioni 
+where giorno = CURRENT_DATE()');
+
+$result = $stmt->fetchAll();
+
+echo $templates->render('prenotazioni_odierne', ['result' => $result]);

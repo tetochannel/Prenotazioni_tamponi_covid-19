@@ -7,7 +7,6 @@ use League\Plates\Engine;
 $giorno = $_POST['giorno'];
 $codice_fiscale = $_POST['codice_fiscale'];
 
-
 $sql = 'select count(*) as numero_prenotazioni, giorno from `prenotazioni_tampone_covid-19`.prenotazioni group by giorno having giorno = :giorno';
 
 $stmt = $pdo->prepare($sql);

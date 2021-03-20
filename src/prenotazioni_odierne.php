@@ -11,4 +11,4 @@ where giorno = CURRENT_DATE()');
 
 $result = $stmt->fetchAll();
 
-echo $templates->render('prenotazioni_odierne', ['result' => $result]);
+echo $templates->render('prenotazioni_odierne', ['result' => $result, 'date' => date('d/m/Y')]);

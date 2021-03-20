@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css">
 </head>
 <body>
-<h2>Lista prenotazioni odierne</h2>
+<h2>Lista delle prenotazioni odierne</h2>
 <table>
     <tr>
         <th>Codice Fiscale</th>

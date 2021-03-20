@@ -18,5 +18,5 @@ $result = $stmt->fetchAll();
 //echo var_dump($stmt->fetchAll());
 //echo '</pre>';
 // }
-                                                                                //sicura
-echo $templates->render('lista_prenotazioni', ['result' => $result, 'uid' => $_GET['uid']]);
+                                                                                //decisione sporca
+echo $templates->render('lista_prenotazioni', ['result' => $result, 'uid' => $_GET['uid'], 'giorno' => date('d/m/Y', strtotime($_GET['giorno']))]);

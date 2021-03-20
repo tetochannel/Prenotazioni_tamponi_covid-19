@@ -7,6 +7,7 @@
 </head>
 <body>
     <h2> Prenotazione riuscita </h2>
+    <h1><strong>Data: <?php echo $giorno;?></strong></h1>
     <h3> Questo è il tuo codice prenotazione che dovrai esibire quando ti presenterai alla visita </h3>
     <img src="qr_code_generator.php?uid=<?php echo $uid;?>"/>
     <h1><strong><?php echo $uid; ?></strong></h1>
@@ -23,7 +24,7 @@
             <tr>
                 <td><?php echo $row['codice_fiscale']; ?></td>
                 <td><?php echo $row['uid']; ?></td>
-                <td><?php echo $row['giorno']; ?></td>
+                <td><?php echo date('d/m/Y', strtotime($row['giorno'])); ?></td>
             </tr>
         <?php endforeach ?>
     </table>

@@ -59,5 +59,5 @@ $stmt->execute(
 
 //Decisione "Sporca" {
 //Sovrascrive l'header del pacchhetto di risposta del server reindirizzando il client alla pagina indicata nella location
-header("location: lista_prenotazioni.php?uid=$codice");
+header("location: lista_prenotazioni.php?uid=$codice&giorno=$giorno");
 //}

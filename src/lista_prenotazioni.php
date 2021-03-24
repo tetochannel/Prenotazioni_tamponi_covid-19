@@ -1,11 +1,11 @@
 <?php
 
 include_once 'config.php';
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
 use League\Plates\Engine;
 
-$templates = new Engine('view', 'tpl');
+$templates = new Engine('../view', 'tpl');
 
 $sql = "SELECT * FROM `prenotazioni_tampone_covid-19`.prenotazioni";
 

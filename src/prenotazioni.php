@@ -1,7 +1,7 @@
 <?php
 
 include_once 'config.php';
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 use League\Plates\Engine;
 
 $giorno = $_POST['giorno'];
@@ -21,7 +21,7 @@ $result = $stmt->fetchAll();
 
 if ($result[0]['numero_prenotazioni'] >= PRENOTAZIONI_MASSIME)
 {
-    $templates = new Engine('view', 'tpl');
+    $templates = new Engine('../view', 'tpl');
     echo $templates->render('prenotazioni_massime', ['giorno' => date('d/m/Y', strtotime($result[0]['giorno']))]);
     exit(0);
 }

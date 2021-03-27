@@ -1,23 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Prenotazioni tampone Covid-19</title>
+    <title>Tamponi Covid-19</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css">
 </head>
 <body>
-    <form action="src/prenotazioni.php" method="post">
-        <fieldset>
-            <legend>Inserisci le tue informazioni per prendere un appuntamento</legend>
-            <label for="codice_fiscale">Username</label>
-            <input type="text" id="codice_fiscale" placeholder="RSSFLV95C12H118C" name="codice_fiscale"/>
-            <label for="data">Data</label>
-            <input type="date" id="data" name="giorno"/>
-            <input type="submit" value="Invia richiesta">
-        </fieldset>
-    </form>
-    <script>
-        document.getElementById('data').valueAsDate = new Date();
-    </script>
+    <h1><strong>Tamponi Covid-19</strong></h1>
+    <ul>
+        <li><h4><a href="prenotazione.html">Effettua una prenotazione</a></h4></li>
+        <li><h4><a href="statistiche.html">Vedi la statistica sulle prenotazioni</a></h4></li>
+        <li><h4><a href="src/prenotazioni.php">Vedi la lista di tutte le prenotazioni</a></h4></li>
+        <li><h4><a href="src/odierne.php">Vedi la lista delle prenotazioni odierne</a></h4></li>
+    </ul>
 </body>
 </html>

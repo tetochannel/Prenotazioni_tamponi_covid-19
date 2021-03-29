@@ -13,3 +13,4 @@
     </tr>
     <?php endforeach ?>
 </table>
+<input onclick="window.location.href='/Prenotazioni_tampone_Covid-19'" type="submit" value="Menu"/>

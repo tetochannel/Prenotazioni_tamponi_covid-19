@@ -21,8 +21,7 @@ $stmt->execute(
     ]
 );
 
-session_start();
-$_SESSION['result'] = $result = $stmt->fetchAll(/*PDO::FETCH_ASSOC*/);
+$result = $stmt->fetchAll(/*PDO::FETCH_ASSOC*/);
 
 if (count($result) == 0)
 {
@@ -30,4 +29,12 @@ if (count($result) == 0)
     exit(0);
 }
 
-echo $templates->render('riepilogo', ['result' => $result, 'data_inizio' => $data_inizio, 'data_fine' => $data_fine]);
+$prenotazioni = array();
+$date = array();
+
+foreach ($result as $row) {
+    $prenotazioni[] = $row['numero_prenotazioni'];
+    $date[] = $row['giorno'];
+}
+
+echo $templates->render('statistiche', ['result' => $result, 'data_inizio' => $data_inizio, 'data_fine' => $data_fine, 'prenotazioni' => $prenotazioni, 'date' => $date]);

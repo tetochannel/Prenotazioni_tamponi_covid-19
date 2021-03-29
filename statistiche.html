@@ -8,17 +8,14 @@
 <body>
 <form action="src/statistiche.php" method="post">
     <fieldset>
-        <legend><h1><strong>Statistiche sulle prenotazioni</strong></h1></legend>
+        <legend><h1><strong>Prenotazioni</strong></h1></legend>
         <label for="inizio">Dal</label>
-        <input type="date" id="inizio" name="inizio"/>
+        <input type="date" id="inizio" name="inizio" required/>
         <label for="fine">al</label>
-        <input type="date" id="fine" name="fine"/>
+        <input type="date" id="fine" name="fine" required/>
         <input type="submit" value="Invia richiesta">
     </fieldset>
 </form>
-<script>
-    document.getElementById('inizio').valueAsDate = new Date();
-    document.getElementById('fine').valueAsDate = new Date();
-</script>
+<input onclick="window.location.href='/Prenotazioni_tampone_Covid-19'" type="submit" value="Menu"/>
 </body>
 </html>

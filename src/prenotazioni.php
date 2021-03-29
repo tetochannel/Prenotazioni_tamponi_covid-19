@@ -19,4 +19,10 @@ $result = $stmt->fetchAll();
 //echo '</pre>';
 // }
 
+if (count($result) == 0)
+{
+    echo 'Nessuna prenotazione';
+    exit(0);
+}
+
 echo $templates->render('prenotazioni', ['result' => $result]);

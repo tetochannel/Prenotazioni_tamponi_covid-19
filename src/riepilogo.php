@@ -4,7 +4,7 @@ include_once 'config.php';
 require '../vendor/autoload.php';
 use League\Plates\Engine;
 
-$giorno = $_POST['giorno'];
+$giorno = date("Y-m-d", strtotime($_POST["giorno"]));
 $codice_fiscale = $_POST['codice_fiscale'];
 
 $sql = 'select count(*) as numero_prenotazioni, giorno from `prenotazioni_tampone_covid-19`.prenotazioni group by giorno having giorno = :giorno';
@@ -13,17 +13,15 @@ $stmt = $pdo->prepare($sql);
 
 $stmt->execute(
     [
-        'giorno' => $giorno
+        'giorno' => "$giorno"
     ]
 );
 
 $result = $stmt->fetchAll();
 
-$templates = new Engine('../view', 'tpl');
-
 if ($result[0]['numero_prenotazioni'] >= PRENOTAZIONI_MASSIME)
 {
-    echo $templates->render('massimo', ['giorno' => date('d/m/Y', strtotime($result[0]['giorno']))]);
+    echo "Numero prenotazioni massimo prenotazioni per $giorno raggiunto";
     exit(0);
 }
 
@@ -62,4 +60,5 @@ $stmt->execute(
 //Sovrascrive l'header del pacchhetto di risposta del server reindirizzando il client alla pagina indicata nella location
 //header("location: prenotazioni.php?uid=$codice&giorno=$giorno");
 //}
+$templates = new Engine('../view', 'tpl');
 echo $templates->render('riepilogo', ['giorno' => date('d/m/Y', strtotime($result[0]['giorno'])), 'uid' => $codice]);

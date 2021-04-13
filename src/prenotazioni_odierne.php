@@ -4,9 +4,15 @@ include_once 'config.php';
 require '../vendor/autoload.php';
 use League\Plates\Engine;
 
+if (!isset($_SESSION) || !$_SESSION['valid'])
+{
+    header("Location: ../");
+    exit(0);
+}
+
 $templates = new Engine('../view', 'tpl');
 
-$stmt = $pdo->query('SELECT codice_fiscale, uid from `prenotazioni_tampone_covid-19`.prenotazioni 
+$stmt = $pdo->query('SELECT codice_fiscale, uid from prenotazioni 
 where giorno = CURRENT_DATE()');
 
 $result = $stmt->fetchAll();

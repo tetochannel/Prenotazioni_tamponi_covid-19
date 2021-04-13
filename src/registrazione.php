@@ -6,6 +6,13 @@ $username = $_POST['username'];
 $password1 = $_POST['password1'];
 $password2 = $_POST['password2'];
 
+http_response_code(403);
+
+if (!isset($_POST['username'], $_POST['password1'], $_POST['password2'])) {
+    header("Location: ../");
+    exit(0);
+}
+
 if ($password1 != $password2)
 {
     http_response_code(403);
@@ -13,7 +20,7 @@ if ($password1 != $password2)
     exit(0);
 }
 
-$sql = "select username from `prenotazioni_tampone_covid-19`.utenti where username = :username";
+$sql = "select username from utenti where username = :username";
 
 $stmt = $pdo->prepare($sql);
 
@@ -32,7 +39,7 @@ if ($result)
     exit(0);
 }
 
-$sql="insert into `prenotazioni_tampone_covid-19`.utenti (username, password) values (:username, :password)";
+$sql="insert into utenti (username, password) values (:username, :password)";
 
 $stmt = $pdo->prepare($sql);
 

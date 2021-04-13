@@ -4,10 +4,16 @@ include_once 'config.php';
 require '../vendor/autoload.php';
 use League\Plates\Engine;
 
+if (!isset($_SESSION) || !$_SESSION['valid'])
+{
+    header("Location: ../");
+    exit(0);
+}
+
 $giorno = date("Y-m-d", strtotime($_POST["giorno"]));
 $codice_fiscale = $_POST['codice_fiscale'];
 
-$sql = 'select count(*) as numero_prenotazioni, giorno from `prenotazioni_tampone_covid-19`.prenotazioni group by giorno having giorno = :giorno';
+$sql = 'select count(*) as numero_prenotazioni, giorno from prenotazioni group by giorno having giorno = :giorno';
 
 $stmt = $pdo->prepare($sql);
 
@@ -27,7 +33,7 @@ if ($result[0]['numero_prenotazioni'] >= PRENOTAZIONI_MASSIME)
 
 $codice = hash('sha3-224', $codice_fiscale.'-'.time());
                                                                                                 // Sono i segna posto, posso avere lo stesso nome delle variabili che rappresentano ma NON fanno riferimento alla stessa cosa (non sono la stessa cosa)
-$sql = "INSERT INTO `prenotazioni_tampone_covid-19`.prenotazioni (codice_fiscale, giorno, uid) values (:codice_fiscale, :giorno, :codice)";
+$sql = "INSERT INTO prenotazioni (codice_fiscale, giorno, uid) values (:codice_fiscale, :giorno, :codice)";
 
 // Con questa istruzione viene inviata la query al database che però non esegue subito ma la memorizza, aspettando che venga richiesto di eseguirla tramite il richiamo della funzione execute
 $stmt = $pdo->prepare($sql);

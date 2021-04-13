@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registrazione</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css">
+</head>
+<body>
+<h1><strong>Accesso</strong></h1>
+<form action="./src/esito_login.php" method="post" onsubmit='
+        const xhr = new XMLHttpRequest()
+        const username = document.getElementById("username").value
+        const password = document.getElementById("password").value
+        const errors = document.getElementById("errors")
+            xhr.open("POST", "./src/login.php", false)
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+            xhr.send(`username=${username}&password=${password}`)
+            switch (xhr.status)
+            {
+                case 200: return true
+                case 403: errors.innerHTML = xhr.responseText
+                    break
+                default: console.log(xhr.status)
+                    break
+            }
+        return false
+'>
+    <fieldset>
+        <legend class="doc">Inserisci le seguenti credenziali</legend>
+        <div class="container">
+            <div class="row responsive-label">
+                <div class="col" style="width: 11%; text-align: center;"><label class="doc" for="username">Nome utente</label></div>
+                <div class="col"><input class="doc" type="text" id="username" name="username" required/></div>
+            </div>
+            <div class="row responsive-label">
+                <div class="col" style="width: 11%; text-align: center;"><label class="doc" for="password">Password</label></div>
+                <div class="col"><input class="doc" type="password" id="password" name="password" required autocomplete="on"/></div>
+            </div>
+            <div class="row responsive-label">
+                <div class="col"><p class="secondary" id="errors"></p></div>
+            </div>
+        </div>
+    </fieldset>
+    <input type="submit" id="register" value="Accedi">
+</form>
+<input onclick="window.location.href='/Prenotazioni_tampone_Covid-19'" type="button" value="Menu"/>
+</body>
+</html>

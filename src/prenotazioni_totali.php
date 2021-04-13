@@ -5,9 +5,15 @@ require '../vendor/autoload.php';
 
 use League\Plates\Engine;
 
+if (!isset($_SESSION) || !$_SESSION['valid'])
+{
+    header("Location: ../");
+    exit(0);
+}
+
 $templates = new Engine('../view', 'tpl');
 
-$sql = "SELECT * FROM `prenotazioni_tampone_covid-19`.prenotazioni";
+$sql = "SELECT * FROM prenotazioni";
 
 $stmt = $pdo->query($sql);
 

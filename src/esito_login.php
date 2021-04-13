@@ -5,7 +5,7 @@ require '../vendor/autoload.php';
 
 use League\Plates\Engine;
 
-if (!isset($_POST['username'])) {
+if (!isset($_POST['username'], $_POST['password'])) {
     header("Location: ../");
     exit(0);
 }

@@ -5,6 +5,12 @@ include_once 'config.php';
 $codice_fiscale = $_POST['codice_fiscale'];
 $codice_prenotazione = $_POST['codice_prenotazione'];
 
+if (!isset($_SESSION) || !$_SESSION['valid'])
+{
+    header("Location: ../");
+    exit(0);
+}
+
 $sql = 'select codice_fiscale, uid, annullata from `prenotazioni_tampone_covid-19`.prenotazioni where codice_fiscale = :codice_fiscale 
                                                                         and uid = :codice_prenotazione';
 

@@ -1,4 +1,4 @@
-<?= $this->layout('main', ['title' => 'Statistiche sulle prenotazioni'])?>
+<?= $this->layout('main', ['title' => 'Statistiche'])?>
 <div style="display: flex; align-items: center">
     <canvas id="chart" width="600"></canvas>
     <table>
@@ -14,7 +14,7 @@
         <?php endforeach ?>
     </table>
 </div>
-<input onclick="window.location.href='/Prenotazioni_tampone_Covid-19'" type="submit" value="Menu"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
 <script>
     const prenotazioni = <?= json_encode($prenotazioni) ?>;

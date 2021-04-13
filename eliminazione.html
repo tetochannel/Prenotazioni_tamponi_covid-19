@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminazione</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css">
+</head>
+<body>
+<h1><strong>Elimina prenotazione</strong></h1>
+<form action="src/eliminazione_prenotazione.php" method="post">
+    <fieldset>
+        <legend>Inserisci le seguenti informazioni per rimuovere un appuntamento</legend>
+        <label for="codice_fiscale">Codice Fiscale</label>
+        <input type="text" id="codice_fiscale" placeholder="RSSFLV95C12H118C" name="codice_fiscale" required/>
+        <label for="codice_prenotazione">Codice prenotazione</label>
+        <input type="text" id="codice_prenotazione" name="codice_prenotazione" required/>
+        <input type="submit" value="Elimina">
+    </fieldset>
+</form>
+<input onclick="window.location.href='/Prenotazioni_tampone_Covid-19'" type="button" value="Menu"/>
+</body>
+</html>

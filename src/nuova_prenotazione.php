@@ -58,7 +58,7 @@ $stmt->execute(
 
 //Decisione "Sporca" {
 //Sovrascrive l'header del pacchhetto di risposta del server reindirizzando il client alla pagina indicata nella location
-//header("location: prenotazioni.php?uid=$codice&giorno=$giorno");
+//header("location: prenotazioni_totali.php?uid=$codice&giorno=$giorno");
 //}
 $templates = new Engine('../view', 'tpl');
-echo $templates->render('riepilogo', ['giorno' => date('d/m/Y', strtotime($result[0]['giorno'])), 'uid' => $codice]);
+echo $templates->render('riepilogo_nuova_prenotazione', ['giorno' => date('d/m/Y', strtotime($result[0]['giorno'])), 'uid' => $codice]);

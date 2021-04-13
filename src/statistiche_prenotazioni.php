@@ -37,4 +37,4 @@ foreach ($result as $row) {
     $date[] = $row['giorno'];
 }
 
-echo $templates->render('statistiche', ['result' => $result, 'data_inizio' => $data_inizio, 'data_fine' => $data_fine, 'prenotazioni' => $prenotazioni, 'date' => $date]);
+echo $templates->render('statistiche_prenotazioni', ['result' => $result, 'data_inizio' => $data_inizio, 'data_fine' => $data_fine, 'prenotazioni' => $prenotazioni, 'date' => $date]);

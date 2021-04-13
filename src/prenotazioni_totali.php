@@ -25,4 +25,4 @@ if (count($result) == 0)
     exit(0);
 }
 
-echo $templates->render('prenotazioni', ['result' => $result]);
+echo $templates->render('prenotazioni_totali', ['result' => $result]);

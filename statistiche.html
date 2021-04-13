@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tamponi Covid-19</title>
+    <title>Statistiche</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css">
 </head>
 <body>
-<form action="src/statistiche.php" method="post">
+<h1><strong>Statistiche prenotazioni</strong></h1>
+<form action="src/statistiche_prenotazioni.php" method="post">
     <fieldset>
-        <legend><h1><strong>Prenotazioni</strong></h1></legend>
+        <legend>Selezione le prenotazioni</legend>
         <label for="inizio">Dal</label>
         <input type="date" id="inizio" name="inizio" required/>
         <label for="fine">al</label>
@@ -16,6 +17,6 @@
         <input type="submit" value="Invia richiesta">
     </fieldset>
 </form>
-<input onclick="window.location.href='/Prenotazioni_tampone_Covid-19'" type="submit" value="Menu"/>
+<input onclick="window.location.href='/Prenotazioni_tampone_Covid-19'" type="button" value="Menu"/>
 </body>
 </html>

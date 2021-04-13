@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tamponi Covid-19</title>
+    <title>Prenotazione</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <style>
@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1><strong>Nuova prenotazione</strong></h1>
-<form action="src/riepilogo.php" method="post">
+<form action="src/nuova_prenotazione.php" method="post">
     <fieldset>
         <legend>Inserisci le seguenti informazioni per prendere un appuntamento</legend>
         <label for="codice_fiscale">Codice Fiscale</label>
@@ -23,13 +23,13 @@
         <input type="submit" value="Invia richiesta">
     </fieldset>
 </form>
-<input onclick="window.location.href='/Prenotazioni_tampone_Covid-19'" type="submit" value="Menu"/>
+<input onclick="window.location.href='/Prenotazioni_tampone_Covid-19'" type="button" value="Menu"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script>
     const days = <?php
         include_once 'src/config.php';
-        $stmt = $pdo->query('select giorno from `prenotazioni_tampone_covid-19`.prenotazioni group by giorno having count(*) >= 5');
+        $stmt = $pdo->query('select giorno from `prenotazioni_tampone_covid-19`.prenotazioni where giorno between current_date() and date_add(current_date(), interval 7 day) group by giorno having count(*) >= 5');
         $result = $stmt->fetchAll();
         $dates = array();
         foreach ($result as $row)
